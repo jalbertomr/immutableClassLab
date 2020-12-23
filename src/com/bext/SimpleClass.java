@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
-public class SimpleClass {
+public class SimpleClass implements Cloneable{
     private int id;
     private BigDecimal bigDecimal;
     private String name;
@@ -62,14 +62,22 @@ public class SimpleClass {
     }
 
     @Override
+    protected Object clone() throws CloneNotSupportedException {
+        SimpleClass sc = (SimpleClass) super.clone();
+        Object obj = sc.date.clone();
+        sc.date = (Date) obj;
+        return sc;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof SimpleClass)) return false;
         SimpleClass that = (SimpleClass) o;
         return getId() == that.getId() &&
-                Objects.equals(getBigDecimal(), that.getBigDecimal()) &&
-                Objects.equals(getName(), that.getName()) &&
-                Objects.equals(getDate(), that.getDate());
+                getBigDecimal().equals(that.getBigDecimal()) &&
+                getName().equals(that.getName()) &&
+                getDate().equals(that.getDate());
     }
 
     @Override
