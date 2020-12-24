@@ -23,6 +23,8 @@ public class SimpleClassExtended extends SimpleClass implements Cloneable {
 
     public SimpleClassExtended( SimpleClassExtended simpleClassExtended){
         super( simpleClassExtended.getSimpleClass());
+        this.idExtended = simpleClassExtended.getIdExtended();
+        this.nameExtended = simpleClassExtended.getNameExtended();
     }
 
     public SimpleClass getSimpleClass() {

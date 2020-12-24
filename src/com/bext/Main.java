@@ -33,7 +33,7 @@ public class Main {
         System.out.println( "changed simpleClass01:" + simpleClass01);
 
         System.out.println( "---- Working with inherited Class ----");
-        SimpleClassExtended simpleClassExtended = new SimpleClassExtended( simpleClass01,1,"simpleClassExtendedConstructor");
+        SimpleClassExtended simpleClassExtended = new SimpleClassExtended( simpleClass01,10,"simpleClassExtendedConstructor");
         SimpleClassExtended simpleClassExtCloned = (SimpleClassExtended) simpleClassExtended.clone();
         System.out.println("-- Initial Class values --");
   	    System.out.println("simpleClass01: " + simpleClass01);
