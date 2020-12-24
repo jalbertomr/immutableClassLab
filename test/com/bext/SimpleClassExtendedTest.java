@@ -45,14 +45,4 @@ class SimpleClassExtendedTest {
         assertNotSame( sce, sceCC);
     }
 
-    @Test
-    void testClone() throws CloneNotSupportedException {
-        SimpleClassExtended sce = new SimpleClassExtended( sc, 10, "nameExtended");
-        SimpleClassExtended sceCloned = (SimpleClassExtended) sce.clone();
-
-        assertEquals(sce, sceCloned);
-        assertNotSame( sce, sceCloned);
-    }
-
-
 }

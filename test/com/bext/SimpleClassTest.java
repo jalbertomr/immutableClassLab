@@ -36,22 +36,4 @@ class SimpleClassTest {
         assertEquals( scCopyConstructor.getDate(), getDateObject("02/02/2022"));
     }
 
-    @Test
-    void testClone() throws CloneNotSupportedException {
-        SimpleClass sc = new SimpleClass(1,new BigDecimal("1111.11"),"simpleClassConstructor", getDateObject("01/01/2020"));
-        SimpleClass scCloned = (SimpleClass) sc.clone();
-
-        assertEquals( sc, scCloned);
-        assertNotSame( sc, scCloned);
-
-        sc.setId(2);
-        sc.setName("name");
-        sc.setBigDecimal( new BigDecimal("22222.22"));
-        sc.setDate( getDateObject( "02/02/2022"));
-
-        assertEquals( scCloned.getId(), 1);
-        assertEquals( scCloned.getName(), "simpleClassConstructor");
-        assertEquals( scCloned.getBigDecimal(), new BigDecimal("1111.11"));
-        assertEquals( scCloned.getDate(), getDateObject("01/01/2020"));
-    }
 }

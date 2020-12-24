@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
-public class SimpleClassExtended extends SimpleClass implements Cloneable {
+public class SimpleClassExtended extends SimpleClass {
     int idExtended;
     String nameExtended;
     Date date;
@@ -45,14 +45,6 @@ public class SimpleClassExtended extends SimpleClass implements Cloneable {
 
     public void setNameExtended(String nameExtended) {
         this.nameExtended = nameExtended;
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        SimpleClassExtended sce = ( SimpleClassExtended) super.clone();
-        Object obj = this.getDate().clone();
-        sce.setDate( (Date) obj);
-        return super.clone();
     }
 
     @Override

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc28a74d-1a63-4879-8a69-8816a2cc19aa" name="Default Changelist" comment="" />
+    <list default="true" id="fc28a74d-1a63-4879-8a69-8816a2cc19aa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bext/SimpleClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bext/SimpleClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bext/SimpleClassExtended.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bext/SimpleClassExtended.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +72,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.com.bext in dataClasses">
+  <component name="RunManager" selected="JUnit.All in dataClasses">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bext.Main" />
       <module name="dataClasses" />
@@ -138,9 +142,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.com.bext in dataClasses" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in dataClasses" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.com.bext in dataClasses" />
         <item itemvalue="JUnit.SimpleClassTest.testClone" />
         <item itemvalue="JUnit.SimpleClassExtendedTest.testClone" />
       </list>
@@ -161,7 +165,7 @@
       <workItem from="1608610992945" duration="196000" />
       <workItem from="1608611296598" duration="11000" />
       <workItem from="1608613530913" duration="29404000" />
-      <workItem from="1608793988065" duration="1531000" />
+      <workItem from="1608793988065" duration="2849000" />
     </task>
     <servers />
   </component>
