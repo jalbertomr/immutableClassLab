@@ -4,23 +4,42 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.jar.JarOutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException {
-	    SimpleClass simpleClass01 = new SimpleClass(1,new BigDecimal("1111.11"),"simpleClassConstructor", getDateObject("01/01/2020"));
+
+        Map<Integer, String> hash_Map
+                = new HashMap<Integer, String>();
+
+        // putting elements into the map
+        hash_Map.put(1, "primero");
+        hash_Map.put(2, "segundo");
+        hash_Map.put(3, "tercero");
+
+        HashMap<String, Date> sdMap = new HashMap<String, Date>();
+        sdMap.put("a",getDateObject("01/01/1971"));
+        sdMap.put("b",getDateObject("02/02/1972"));
+        sdMap.put("c",getDateObject("03/03/1973"));
+
+        SimpleClass simpleClass01 = new SimpleClass(1,new BigDecimal("1111.11"),"simpleClassConstructor", getDateObject("01/01/2020"), sdMap);
 
         SimpleClass simpleClassBackup = new SimpleClass( simpleClass01);
+
         SimpleClass simpleClassCloned = (SimpleClass) simpleClass01.clone();
-        System.out.println("simpleClass01: " + simpleClass01);
-        System.out.println("Modifying state of simpleClass01");
-        System.out.println( "simpleClass01.getDate().getTime():" + simpleClass01.getDate().getTime() );
-        simpleClass01.getDate().setTime( simpleClass01.getDate().getTime() + 1234567890L );
+        System.out.println("                  simpleClass01: " + simpleClass01);
+        System.out.println("--- Modifying state of simpleClass01---");
+        System.out.println("simpleClass01.getDate().getTime():" + simpleClass01.getDate().getTime() );
+        //simpleClass01.getDate().setTime( simpleClass01.getDate().getTime() + 1234567890L );
+        simpleClassBackup.getSsMap().put("a",getDateObject("06/06/2066"));
+        simpleClassCloned.getSsMap().put("a",getDateObject("07/07/2077"));
         System.out.println("modified value of simpleClass01: " + simpleClass01);
 
-        System.out.println( "simpleClass01.equals(simpleClassBackup): " + Boolean.toString( simpleClass01.equals( simpleClassBackup)).toUpperCase() );
-        System.out.println("value of simpleClass01: " + simpleClass01);
+        System.out.println("simpleClass01.equals(simpleClassBackup): " + Boolean.toString( simpleClass01.equals( simpleClassBackup)).toUpperCase() );
+        System.out.println("simpleClass01.equals(simpleClassCloned): " + Boolean.toString( simpleClass01.equals( simpleClassCloned)).toUpperCase() );
+        System.out.println("value of simpleClass01    : " + simpleClass01);
         System.out.println("value of simpleClassBackup: " + simpleClassBackup);
         System.out.println("value of simpleClassCloned: " + simpleClassCloned);
         System.out.println("-----------------------------");
@@ -33,7 +52,7 @@ public class Main {
         System.out.println( "changed simpleClass01:" + simpleClass01);
 
         System.out.println( "---- Working with inherited Class ----");
-        SimpleClassExtended simpleClassExtended = new SimpleClassExtended( simpleClass01,10,"simpleClassExtendedConstructor");
+        SimpleClassExtended simpleClassExtended = new SimpleClassExtended( simpleClass01,10,"simpleClassExtendedConstructor", getDateObject("06/06/1066"));
         SimpleClassExtended simpleClassExtCloned = (SimpleClassExtended) simpleClassExtended.clone();
         System.out.println("-- Initial Class values --");
   	    System.out.println("simpleClass01: " + simpleClass01);
@@ -74,6 +93,6 @@ public class Main {
             pe.printStackTrace();
             return null;
         }
-
     }
+
 }

@@ -2,29 +2,36 @@ package com.bext;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class SimpleClassExtended extends SimpleClass implements Cloneable {
     int idExtended;
     String nameExtended;
-    Date date;
+    Date dateExtended;
 
-    public SimpleClassExtended(int id, BigDecimal bigDecimal, String name, Date date, int idExtended, String nameExtended) {
-        super( id, bigDecimal, name, date);
+    public SimpleClassExtended(int id, BigDecimal bigDecimal, String name, Date date, HashMap<String, Date> sdMap, int idExtended, String nameExtended, Date dateExtended) {
+        super( id, bigDecimal, name, date, sdMap);
         this.idExtended = idExtended;
         this.nameExtended = nameExtended;
+        Object obj = dateExtended.clone();
+        this.dateExtended = (Date)obj;
     }
 
-    public SimpleClassExtended( SimpleClass simpleClass, int idExtended, String nameExtended) {
+    public SimpleClassExtended( SimpleClass simpleClass, int idExtended, String nameExtended, Date dateExtended) {
         super( simpleClass);
         this.idExtended = idExtended;
         this.nameExtended = nameExtended;
+        Object obj = dateExtended.clone();
+        this.dateExtended = (Date)obj;
     }
 
     public SimpleClassExtended( SimpleClassExtended simpleClassExtended){
         super( simpleClassExtended.getSimpleClass());
         this.idExtended = simpleClassExtended.getIdExtended();
         this.nameExtended = simpleClassExtended.getNameExtended();
+        Object obj = simpleClassExtended.getDateExtended().clone();
+        this.dateExtended = (Date) obj;
     }
 
     public SimpleClass getSimpleClass() {
@@ -47,6 +54,12 @@ public class SimpleClassExtended extends SimpleClass implements Cloneable {
         this.nameExtended = nameExtended;
     }
 
+    public Date getDateExtended() { return dateExtended; }
+
+    public void setDateExtended(Date dateExtended) {
+        this.dateExtended = dateExtended;
+    }
+
     @Override
     protected Object clone() throws CloneNotSupportedException {
         SimpleClassExtended sce = ( SimpleClassExtended) super.clone();
@@ -62,19 +75,21 @@ public class SimpleClassExtended extends SimpleClass implements Cloneable {
         if (!super.equals(o)) return false;
         SimpleClassExtended that = (SimpleClassExtended) o;
         return getIdExtended() == that.getIdExtended() &&
-                Objects.equals(getNameExtended(), that.getNameExtended());
+                getNameExtended().equals(that.getNameExtended()) &&
+                getDateExtended().equals(that.getDateExtended());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getIdExtended(), getNameExtended());
+        return Objects.hash(super.hashCode(), getIdExtended(), getNameExtended(), getDateExtended());
     }
 
     @Override
     public String toString() {
-        return "SimpleClassExtend{ " + super.toString() + ", " +
+        return "SimpleClassExtended{" +
                 "idExtended=" + idExtended +
                 ", nameExtended='" + nameExtended + '\'' +
+                ", dateExtended=" + dateExtended +
                 '}';
     }
 }
